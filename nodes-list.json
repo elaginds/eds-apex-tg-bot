@@ -1,6 +1,7 @@
 [{
     "mode": "Control",
-    "name": "Caustic Treatment"
+    "name": "Caustic Treatment",
+    "times": ["09:00", "12:00", "15:00", "18:00", "21:00", "24:00"]
 }, {
     "mode": "Gun Run",
     "name": "Monument"
