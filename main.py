@@ -1,10 +1,53 @@
 import telebot
 import os
+import json
 from datetime import datetime, time, timedelta
 
 TOKEN = os.getenv('EDS_APEX_TG_BOT_TOKEN')
-MODES_LIST = ['Gun Run', 'Deathmatch', 'Control']
+# MODES_LIST = ['Control', 'Gun Run', 'Deathmatch']
+# MODES_LIST = [
+#     {
+#     'mode': 'Control',
+#     'name': 'Caustic Treatment'
+# }, {
+#     'mode': 'Gun Run',
+#     'name': 'Monument'
+# }, {
+#     'mode': 'Deathmatch',
+#     'name': 'Zeus Station'
+# }, {
+#     'mode': 'Control',
+#     'name': 'Barometer'
+# }, {
+#     'mode': 'Gun Run',
+#     'name': 'Estates'
+# }, {
+#     'mode': 'Deathmatch',
+#     'name': 'Estates'
+# }, {
+#     'mode': 'Control',
+#     'name': 'Lava Siphon'
+# }, {
+#     'mode': 'Gun Run',
+#     'name': 'Skull Town'
+# }, {
+#     'mode': 'Deathmatch',
+#     'name': 'Fragment East'
+# }, {
+#     'mode': 'Control',
+#     'name': 'Hammond Labs'
+# }, {
+#     'mode': 'Gun Run',
+#     'name': 'Wattsons Pylon'
+# }, {
+#     'mode': 'Deathmatch',
+#     'name': 'Skull Town'
+# }]
 NEXT_MODES_COUNT = 3
+
+with open('nodes-list.json', 'r') as file:
+    MODES_LIST = json.load(file)
+    print('MODES_LIST', MODES_LIST)
 
 print('TOKEN', TOKEN)
 if not TOKEN:
@@ -17,7 +60,7 @@ def main(message):
     print('START')
     bot.send_message(message.chat.id, 'HELLO!')
 
-@bot.message_handler(commands=['now'])
+@bot.message_handler(commands=['now', 'mix'])
 def main(message):
     print('NOW')
     msg = getMessage()
@@ -65,7 +108,7 @@ def getNextModes(mode_index, changes):
     start_time = getStartTime(changes)
 
     for n in range(0, 3):
-        result.append(f'{getTime(start_time, n)} - {extended_list[mode_index + 1 + n]}')
+        result.append(f'{getTime(start_time, n)} - {extended_list[mode_index + 1 + n]['mode']} - {extended_list[mode_index + 1 + n]['name']}')
 
     return result
 
@@ -82,7 +125,7 @@ def getStartTime(changes):
 
 # Создаем строку ответа
 def createAnswer(mode_index, next_modes_list):
-    arr = [f'Now - {MODES_LIST[mode_index]}'] + next_modes_list
+    arr = [f'Now - {MODES_LIST[mode_index]['mode']} - {MODES_LIST[mode_index]['name']}'] + next_modes_list
     result_str = ''
 
     for item in arr:

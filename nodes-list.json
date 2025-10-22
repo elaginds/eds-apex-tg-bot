@@ -1,0 +1,37 @@
+[{
+    "mode": "Control",
+    "name": "Caustic Treatment"
+}, {
+    "mode": "Gun Run",
+    "name": "Monument"
+}, {
+    "mode": "Deathmatch",
+    "name": "Zeus Station"
+}, {
+    "mode": "Control",
+    "name": "Barometer"
+}, {
+    "mode": "Gun Run",
+    "name": "Estates"
+}, {
+    "mode": "Deathmatch",
+    "name": "Estates"
+}, {
+    "mode": "Control",
+    "name": "Lava Siphon"
+}, {
+    "mode": "Gun Run",
+    "name": "Skull Town"
+}, {
+    "mode": "Deathmatch",
+    "name": "Fragment East"
+}, {
+    "mode": "Control",
+    "name": "Hammond Labs"
+}, {
+    "mode": "Gun Run",
+    "name": "Wattson's Pylon"
+}, {
+    "mode": "Deathmatch",
+    "name": "Skull Town"
+}]
