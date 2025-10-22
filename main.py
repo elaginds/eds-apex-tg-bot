@@ -107,8 +107,8 @@ def getNextModes(mode_index, changes):
     result = list()
     start_time = getStartTime(changes)
 
-    for n in range(0, 3):
-        result.append(f'{getTime(start_time, n)} - {extended_list[mode_index + 1 + n]['mode']} - {extended_list[mode_index + 1 + n]['name']}')
+    for n in range(0, NEXT_MODES_COUNT):
+        result.append(f'{getTime(start_time, n)} - {extended_list[mode_index + 1 + n]["mode"]} - {extended_list[mode_index + 1 + n]["name"]}')
 
     return result
 
@@ -125,7 +125,7 @@ def getStartTime(changes):
 
 # Создаем строку ответа
 def createAnswer(mode_index, next_modes_list):
-    arr = [f'Now - {MODES_LIST[mode_index]['mode']} - {MODES_LIST[mode_index]['name']}'] + next_modes_list
+    arr = [f'Now - {MODES_LIST[mode_index]["mode"]} - {MODES_LIST[mode_index]["name"]}'] + next_modes_list
     result_str = ''
 
     for item in arr:
